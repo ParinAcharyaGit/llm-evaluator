@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import PromptInput from './components/PromptInput';
 import ResponseCard from './components/ResponseCard';
-import { getLLMResponse, getJudgeScore } from './services/groqService';
+import { getLLMResponse, getJudgeScore, modelDisplayNames } from './services/groqService';
 import './App.css';
 
 function App() {
@@ -78,7 +78,8 @@ function App() {
           {Object.entries(responses).map(([llm, response]) => (
             <ResponseCard
               key={llm}
-              modelName={llm.toUpperCase()}
+              modelId={llm}
+              modelName={modelDisplayNames[llm]}
               response={response}
               score={scores[llm]}
             />

@@ -8,6 +8,13 @@ const models = {
   judge: 'llama-3.2-1b-preview'
 };
 
+// Add display names for the models
+export const modelDisplayNames = {
+  llm1: 'Llama 3.1 (8B)',
+  llm2: 'Llama 3 (70B)',
+  llm3: 'Llama 3.2 (3B)',
+};
+
 async function callGroqAPI(prompt, model) {
   try {
     const response = await fetch(GROQ_API_URL, {
@@ -53,9 +60,9 @@ Do not include any explanation or additional text.
 
 Prompt: "${prompt}"
 
-LLM1: ${responses.llm1}
-LLM2: ${responses.llm2}
-LLM3: ${responses.llm3}
+${modelDisplayNames.llm1}: ${responses.llm1}
+${modelDisplayNames.llm2}: ${responses.llm2}
+${modelDisplayNames.llm3}: ${responses.llm3}
 
 Score each response from 0 to a max of 10, based on relevant metrics.
 Return ONLY a JSON object in this exact format (no other text):

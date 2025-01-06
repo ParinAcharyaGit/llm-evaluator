@@ -1,6 +1,6 @@
 import React from 'react';
 
-function ResponseCard({ modelName, response, score }) {
+function ResponseCard({ modelId, modelName, response, score }) {
   return (
     <div className="response-card">
       <div className="card-header">
