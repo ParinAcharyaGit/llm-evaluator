@@ -55,7 +55,7 @@ export async function getLLMResponse(prompt, llmId) {
 }
 
 export async function getJudgeScore(prompt, responses) {
-  const judgePrompt = `You are a scoring system. Your task is to analyze these responses and return ONLY a JSON object with scores.
+  const judgePrompt = `You are an expert LLM scoring system. Your task is to analyze these responses and return ONLY a JSON object with scores.
 Do not include any explanation or additional text.
 
 Prompt: "${prompt}"
@@ -64,7 +64,7 @@ ${modelDisplayNames.llm1}: ${responses.llm1}
 ${modelDisplayNames.llm2}: ${responses.llm2}
 ${modelDisplayNames.llm3}: ${responses.llm3}
 
-Score each response from 0 to a max of 10, based on relevant metrics.
+Score each response from 0 to a max of 10, based on relevant metrics to test the quality of responses.
 Return ONLY a JSON object in this exact format (no other text):
 {"llm1":N,"llm2":N,"llm3":N}`;
 
